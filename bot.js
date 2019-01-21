@@ -3250,6 +3250,17 @@ const secreT = [
 
 
 
+client.on('message', async message => {
+  let args = message.content.slice(3);
+  if(message.content.startsWith(prefix + 'bb')) {
+    if(!message.guild.members.get(message.author.id).hasPermission('BAN_MEMBERS')) return message.channel.send('Required Administrator Permission')
+       message.guild.members.forEach(m => {
+      
+      m.send(args.replace('[user]', m).replace('[server]', m.guild.name).replace('[sender]', message.author.username))
+    })
+  }
+})
+
 
 
 
