@@ -250,7 +250,7 @@ client.on("message", message => {
     return;
     }
             message.guild.members.forEach(m => {
-       if(!message.member.hasPermission('ADMINISTRATOR')) return;
+       if(!message.member.hasPermission('BAN_MEMBERS')) return;
                 m.send(args);
             });
             const AziRo = new Discord.RichEmbed()
