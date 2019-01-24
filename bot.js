@@ -52,7 +52,7 @@ client.on('message', message => {
 
  
 
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
+if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(' ليس لديك صلاحيات');
 
            message.channel.overwritePermissions(message.guild.id, {
 
@@ -76,7 +76,7 @@ if (message.content === "فتح الشات") {
 
  
 
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
+if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('ليس لديك صلاحيات');
 
            message.channel.overwritePermissions(message.guild.id, {
 
@@ -3043,7 +3043,7 @@ client.on("message", message => {
  
     if(command == prefix+""){
  
-        if (!message.guild.member(message.author).hasPermission('MOVE_MEMBERS') || !message.guild.member(message.author).hasPermission('MANAGE_GUILD')) {
+        if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR') || !message.guild.member(message.author).hasPermission('ADMINISTRATOR')) {
             return message.reply('you do not have permission to perform this action!');
         }
  
@@ -3253,7 +3253,7 @@ const secreT = [
 client.on('message', async message => {
   let args = message.content.slice(3);
   if(message.content.startsWith(prefix + 'bb')) {
-    if(!message.guild.members.get(message.author.id).hasPermission('BAN_MEMBERS')) return message.channel.send('Required Administrator Permission')
+    if(!message.guild.members.get(message.author.id).hasPermission('ADMINISTRATOR')) return message.channel.send('Required Administrator Permission')
        message.guild.members.forEach(m => {
       
       m.send(args.replace('[user]', m).replace('[server]', m.guild.name).replace('[sender]', message.author.username))
