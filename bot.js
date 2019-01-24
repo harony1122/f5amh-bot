@@ -3250,16 +3250,6 @@ const secreT = [
 
 
 
-client.on('ready', () => {
-    setInterval(function(){
-        client.guilds.get('431873858908192798').roles.find('name', 'color').edit({color: 'RANDOM'})
-    },5000);
-  
-
-})
-
-
-
 
 
 
