@@ -34,17 +34,13 @@ const sql = require("sqlite");
  
 
 
+client.user.setGame(`F5AMH THE BEST`,"http://twitch.tv/S-F")
 
 
 
 
 
 
-
-
-client.on('message', message => {
-
- 
 
     if (message.content === "قفل الشات") {
 
