@@ -52,7 +52,7 @@ client.on('message', message => {
 
  
 
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
+if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(' ليس لديك صلاحيات');
 
            message.channel.overwritePermissions(message.guild.id, {
 
@@ -76,7 +76,7 @@ if (message.content === "فتح الشات") {
 
  
 
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
+if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('ليس لديك صلاحيات');
 
            message.channel.overwritePermissions(message.guild.id, {
 
@@ -1636,33 +1636,12 @@ function getValue(key, array) {
     }
   }
 }
-client.on('message', message => {
-var prefix = "!";
 
-    if (message.author.id === client.user.id) return;
-    if (message.guild) {
-   let embed = new Discord.RichEmbed()
-    let args = message.content.split(' ').slice(1).join(' ');
-if(message.content.split(' ')[0] == prefix + 'bc') {
-    if (!args[1]) {
-message.channel.send("**!bc <message>**");
-return;
-}
-        message.guild.members.forEach(m => {
-   if(!message.member.hasPermission('ADMINISTRATOR')) return;
-            var bc = new Discord.RichEmbed()
-            .addField('» السيرفر :', `${message.guild.name}`)
-            .addField('» المرسل : ', `${message.author.username}#${message.author.discriminator}`)
-            .addField(' » الرسالة : ', args)
-            .setColor('#ff0000')
-            // m.send(`[${m}]`);
-            m.send(`${m}`,{embed: bc});
-        });
-    }
-    } else {
-        return;
-    }
-});
+
+
+
+
+
 
 let points = {};
 const type = [
@@ -2165,7 +2144,7 @@ var prefix = "!";
 
 
 client.on('message', message => {
-    if (message.content == "!quas") {
+    if (message.content == "!سؤال") {
          message.react('🤔','👌')
         var x = ['اين يلعب مصطفي فتحي؟', 'ما هو اسم ملعب بارشالونة', 'ما هو يوم الحج الأكبر؟', 'ما هو أطول أنهار أوربا ؟', 'ما هو اسم بيت الدجاج', 'ما هو أول بنك قام بالنشاط المصرفي في السعودية عام 1926م' , 'ما هو أول جامع أقيم في مصر','ما هو أطول نهر في آسيا','ما هو أقرب كوكب إلى الشمس','ما هو الحيوان الذي يُسمى البهنس','ما هو اول مسجد أسس بالمدينة','متى وقع صلح الحديبية عام 6هـ او 3هـ او 2هـ؟','متى قامت أمريكا بأول رحلة فضائية','متى كانت غزوة خيبر؟','ما هي السورة التي تبدأ بقوله تعالى " يا أيها النبي اتق الله ولا تطع الكافرين والمنافقين إن الله كان عليما حكيما ".اجب؟','ما هي السورة التي يطلق عليها عروس القرآن','ماذا يسمى من لايقرأ ولايكتب','ماهي أول دولة استخدمت طابع البريد','ماهو شعار الولايات المتحدة الامريكية','ماهو اذكي الحيوانات','من هو مكتشف أمريكا','مامعنى "فرعون" اجب؟','ماهو اقرب كوكب إلى الارض','ما هي نسبه المياه من الكره الارضيه?','كم عدد السجدات في القرآن الكريم؟','من هو بطل كاس العالم في عام 1966','أين أفتتح اول متحف في العالم?','ماأسم أنثى الحمار?','كم تبلغ درجه حراره الشمس؟','من هي مدينة الضباب','أين توجد أطول سكة حديد في العالم?'
         ];
@@ -3043,7 +3022,7 @@ client.on("guildMemberAdd", member => {
 
 
 client.on("message", message => {
-    var prefix = "رسالة";
+    var prefix = "!bc";
         if (message.author.id === client.user.id) return;
         if (message.guild) {
        let embed = new Discord.RichEmbed()
@@ -3119,52 +3098,6 @@ client.on("message", message => {
 
 
 client.on("guildMemberAdd", member => { member.createDM().then(function (channel) { return channel.send(`:rose: ولكم نورت السيرفر:rose: :crown:اسم العضو ${member}:crown: انت العضو رقم ${member.guild.memberCount} `) }).catch(console.error) })
-
-
-
-
-
-client.on('message', message => {
-    if (message.content.startsWith("رابط")) {
- 
-  message.channel.createInvite({
-        thing: true,
-        maxUses: 5,
-        maxAge: 86400
-    }).then(invite =>
-      message.author.sendMessage(invite.url)
-    )
-    const embed = new Discord.RichEmbed()
-        .setColor("RANDOM")
-        .setDescription("| :white_check_mark:  | :heart:  تم ارسال الرابط على الخاص  ")
-      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
-              const Embed11 = new Discord.RichEmbed()
-        .setColor("RANDOM")
-                .setAuthor(message.guild.name, message.guild.iconURL)
-        .setDescription(`
-**
----------------------
--[${message.guild.name}]  هذا هو رابط سيرفر
----------------------
--هذا الرابط صالح للأستخدام 5 مرات 
----------------------
--هذا الرابط صالح لمده 24 ساعه 
----------------------
-**`)
-      message.author.sendEmbed(Embed11)
-    }
-});
-
-
-
-
-
-
-
-
-
-
-
 
 
 
