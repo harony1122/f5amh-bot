@@ -31,11 +31,6 @@ const sql = require("sqlite");
 ,ti={}  
 ,spee={};
 
- 
-
-
-client.user.setGame(`F5AMH THE BEST`,"http://twitch.tv/S-F")
-
 
 
 
